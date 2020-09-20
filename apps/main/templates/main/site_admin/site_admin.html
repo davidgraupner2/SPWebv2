@@ -14,6 +14,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/feather-icon.css" %}">
+
+    <!-- BootStrap Switch -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 
@@ -73,7 +79,7 @@
             Service Status
         </a>
 
-        <a href="#" id="a-exit" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <a href="#" id="a-exit" data-toggle="modal" data-target="#exitadminmodal" class="list-group-item list-group-item-action list-group-item-primary">
             <i class="fas fa-window-close fa-lg p-2"></i>
             Exit Admin
         </a>
@@ -86,24 +92,28 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light primary-color navbar-dark" style="height: 70px">
-        <button class="btn btn-danger" id="menu-toggle">Toggle Sidebar</button>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <!-- Show / Hide Sidebar buttons -->
+
+          <!-- Hide Sidebar Button - shown by default -->
+          <button class="btn btn-danger btn-sm justify-content-center" id="menu-toggle-hide" class="text-white" style="display: block;">
+              <i id="sidebarhide" class="fas fa-arrow-left fa-lg mr-2 align-middle"></i>
+              Sidebar
+          </button>
+
+          <!-- Show SideBar button - hidden by default -->
+          <button class="btn btn-danger btn-sm justify-content-center" id="menu-toggle-show" class="text-white" style="display: none">
+              <i class="fas fa-arrow-right fa-lg mr-2 align-middle"></i>
+              Sidebar
+          </button>
+
+        <!-- Load the Brand for the NavBar -->
+        {% include "main/navbars/brand_no_home.html" %}
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <!-- Load the Brand for the NavBar -->
-          {% include "main/navbars/brand.html" %}
-
           <ul class="navbar-nav mt-2 mt-lg-0">
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "main:home"%}#intro">Home</a>
-                </li>
-            </ul>
+            <!-- Additional links go here -->
           </ul>
         </div>
       </nav>
@@ -114,27 +124,45 @@
         <!--Tab Contents -->
         <div class="tab-content" id="admin-pane-content">
             This is current
-{#          <div id="dashboard" class="tab-pane fade show active" role="tabpanel">#}
-{#              {% include "main/admin_panel/dashboard.html" %}#}
-{#          </div>#}
-
-{#          <div id="siteconfig" class="tab-pane fade" role="tabpanel"><h2>site config</h2>...</div>#}
-{#            <div id="users" class="tab-pane fade" role="tabpanel"><h2>users</h2>...</div>#}
-{#            <div id="services" class="tab-pane fade" role="tabpanel"><h2>services</h2>...</div>#}
-{#            <div id="profile" class="tab-pane fade" role="tabpanel"><h2>profile</h2>...</div>#}
-{#            <div id="logout" class="tab-pane fade" role="tabpanel"><h2>logout</h2>...</div>#}
-{#            <div id="servicestatus" class="tab-pane fade" role="tabpanel"><h2>service status</h2>...</div>#}
         </div>
 
       </div>
     </div>
     <!-- /#page-content-wrapper -->
 
+    <!-- Modal -->
+    `<div class="modal fade" id="exitadminmodal" tabindex="-1" role="dialog" aria-labelledby="exitadminmodal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exitadminmodaltitle">Exit Admin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to exit the admin interface?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <a type="button" href="{% url "main:home" %}" class="btn btn-primary">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
   <!-- /#wrapper -->
 
+  <!-- Feather Icon Support -->
+  <script src="{% static "js/feather-icon/feather.min.js" %}"></script>
+
   <!-- jQuery -->
     <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+
+  <!-- Bootstrap Switch -->
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="{% static "js/popper.min.js" %}" ></script>
@@ -153,12 +181,35 @@
 
   <!-- Menu Toggle Script -->
   <script>
-    {#Toggles the side bar#}
-    $("#menu-toggle").click(function(e) {
+    {#Hides the side bar#}
+    $("#menu-toggle-hide").click(function(e) {
 
         e.preventDefault();
 
         $("#wrapper").toggleClass("toggled");
+
+        // Make the hide sidebar button invisible
+        var hidebutton=document.getElementById("menu-toggle-hide")
+        hidebutton.style.display = "none"
+
+        // Make the show sidebar button visible
+        var showbutton=document.getElementById("menu-toggle-show")
+        showbutton.style.display = "block"
+    });
+
+    $("#menu-toggle-show").click(function(e) {
+
+        e.preventDefault();
+
+        $("#wrapper").toggleClass("toggled");
+
+        // Make the show sidebar button visible
+        var hidebutton=document.getElementById("menu-toggle-hide")
+        hidebutton.style.display = "block"
+
+        // Make the hide sidebar button invisible
+        var showbutton=document.getElementById("menu-toggle-show")
+        showbutton.style.display = "none"
     });
   </script>
 
@@ -220,6 +271,18 @@
 
 
   </script>
+
+    <script>
+        {# To enable Bootstrap Tooltips #}
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    <script>
+      feather.replace()
+    </script>
+
 
 </body>
 

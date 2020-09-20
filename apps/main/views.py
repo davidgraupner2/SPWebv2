@@ -24,6 +24,11 @@ def landing(request):
 
     return render(request, 'main/landing/index.html', {"landing_page": True})
 
+
+def pricing(request):
+    return render(request,"main/landing/pricing.html")
+
+
 def site_configuration(request):
 
     if request.method == "POST":

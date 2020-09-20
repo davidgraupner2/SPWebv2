@@ -39,11 +39,16 @@
                     <a class="nav-link" href="{% url "main:home" %}#contact">Contact</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url "main:site_config"%}">Site Configuration</a>
-                    </div>
+                    <a class="nav-link" href="{% url "main:site_config"%}">Admin</a>
+{#                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url "main:site_config"%}" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>#}
+{#                    <div class="dropdown-menu">#}
+{#                        <a class="dropdown-item" href="{% url "main:site_config"%}">Site Configuration</a>#}
+{#                    </div>#}
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing">Pricing</a>
+                </li>
+
             </ul>
             <!-- End Links -->
 

@@ -1,0 +1,230 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+Pricing
+{% endblock %}
+
+{% block header %}
+    {% include "main/navbars/navbar.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+
+      <h3 class="my-5 h3 text-center">Our pricing plans</h3>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-md-8 text-center">
+
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo qui laboriosam nihil
+            reiciendis fugit eius nostrum
+            ipsum odio, voluptate debitis laborum perspiciatis voluptatibus? Culpa expedita rem totam eos fugit atque!</p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row  -->
+      <div class="row text-center wow fadeIn">
+
+        <!--Grid column for Free Card-->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+          <!-- Free Card-->
+          <div class="card h-100">
+
+            <!-- Card header -->
+            <div class="card-header">
+              <h4>
+                <strong>Free</strong>
+              </h4>
+            </div>
+
+            <!--Free Card content-->
+            <div class="card-body d-flex flex-column">
+
+              <h3 class="card-title pricing-card-title mb-4">$0
+                <small class="text-muted"></small>
+              </h3>
+
+              <ol class="list-unstyled mb-4">
+                <li>Single User
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Demo Database
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <li>Out of the box exprience
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Video Based Onboarding
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+              </ol>
+
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary waves-effect mt-auto align-self-end">Sign up for free</button>
+
+            </div>
+
+          </div>
+          <!-- End Free Card-->
+
+        </div>
+        <!--End Free Grid column-->
+
+        <!--Grid column for Enterprise Card-->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+          <!--Enterprise Card-->
+          <div class="card h-100">
+
+            <!-- Enterprise Card header -->
+            <div class="card-header">
+              <h4>
+                <strong>Enterprise</strong>
+              </h4>
+            </div>
+
+            <!--Enterprise Card content-->
+            <div class="card-body d-flex flex-column">
+
+              <h3 class="card-title pricing-card-title mb-4">$185.00
+                <small class="text-muted">Per user/ Month</small>
+              </h3>
+
+              <ol class="list-unstyled mb-4">
+                <li>Base ITSM Tenanted
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Out of the box experience
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Video based oboarding
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Additonal Options</li>
+                <li>PPM $15/User/Month
+                  <i class="fas fa-check ml-1"></i>
+                </li>
+                <li>HRSM $20/User/Month
+                  <i class="fas fa-check ml-1"></i>
+                </li>
+              </ol>
+
+              <button type="button" class="btn btn-lg btn-block btn-primary waves-effect align-self-end mt-auto">Get started</button>
+
+            </div>
+
+          </div>
+          <!--End Enterprise Card-->
+
+        </div>
+        <!--End Enterprise Grid column-->
+
+        <!--Dedicated Grid column-->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+          <!--Dedicated Card-->
+          <div class="card h-100">
+
+            <!-- Dedicated Card header -->
+            <div class="card-header">
+              <h4>
+                <strong>Dedicated</strong>
+              </h4>
+            </div>
+
+            <!--Dedicated Card content-->
+            <div class="card-body d-flex flex-column">
+
+              <h3 class="card-title pricing-card-title mb-4">$230.00
+                <small class="text-muted">Per user/ Month</small>
+              </h3>
+
+              <ol class="list-unstyled mb-4">
+                <li>Includes Enterprise +
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Dedicated Database
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Configurable to your needs
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>No code admin access
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+              </ol>
+
+              <button type="button" class="btn btn-lg btn-block btn-primary waves-effect align-self-end mt-auto">Get started</button>
+
+            </div>
+
+          </div>
+          <!--End Dedicated Card-->
+
+        </div>
+        <!--End Dedicated Grid column-->
+
+
+        <!--MSP Grid column-->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+          <!--MSP Card-->
+          <div class="card h-100">
+
+            <!-- MSP Card header -->
+            <div class="card-header">
+              <h4>
+                <strong>MSP</strong>
+              </h4>
+            </div>
+
+            <!--MSP Card content-->
+            <div class="card-body d-flex flex-column">
+
+              <h3 class="card-title pricing-card-title mb-4">$250.00
+                <small class="text-muted">per User / Month</small>
+              </h3>
+
+              <ol class="list-unstyled mb-4">
+                <li>Includes Dedicated +
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+                <hr>
+                <li>Multi-Tenanted for your customers
+                  <i class="fas fa-check green-text ml-1"></i>
+                </li>
+            </ol>
+
+              <button type="button" class="btn btn-lg btn-block btn-primary align-self-end mt-auto">Get started</button>
+
+            </div>
+
+          </div>
+          <!--End MSP Card-->
+
+        </div>
+        <!--End MSP Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+{% endblock %}
+
