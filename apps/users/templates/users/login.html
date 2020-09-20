@@ -1,0 +1,47 @@
+{% extends "main/base.html" %}
+{% load main_tags %}
+{% load main_widgets %}
+
+{% block body %}
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center text-white p-4 bg-dark rounded">
+                    <h1 class="display-4 py-2 text-wrap">Login to <br> {% AppName %}</h1>
+                    <div class="px-2">
+                        <form action="{% url "users:login" %}" method="post" class="justify-content-center">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="sr-only">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Email Address" name="username" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Password</label>
+                                <input type="password" class="form-control" placeholder="password" name="password" required>
+                            </div>
+
+                            {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}
+                                    {# Show any errors to the user #}
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>Error!</strong><br> {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember_me">
+                                    Remember Me
+                                </label>
+                            </div>
+                            <span class="float-right">
+                                {% widget_form_login %}
+                            </span>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% load static %}
+
+<!-- Primary Color Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top primary-color">
+
+    <div class="container">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">
+            <a href="{% url "main:home" %}">
+                <img src="{% static "img/logo/EasySM_Logo1.png" %}">
+            </a>
+        </a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home"%}#intro">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home" %}#best-features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home" %}#examples">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home" %}#gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home" %}#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- End Links -->
+
+            <!-- Social Icon  -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+            <!-- End Social Icons -->
+
+            <!-- End Collapsible content -->
+        </div>
+    </div>
+</nav>

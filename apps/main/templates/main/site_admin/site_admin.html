@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Panel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "css/streamlinepartners.css" %}">
+
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static "css/mdb-free.css"%}">
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{% static "css/side_bar.css"%}">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="primary-color" id="sidebar-wrapper">
+      <div class="sidebar-heading bg-dark text-white align-self-center nowrap" style="height: 70px" align="middle">Admin Panel</div>
+        <div id="sidebarlist" class="list-group list-group-flush">
+
+        <!-- Side Bar Items -->
+        <a href="#dashboard" id="a-dashboard" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary active">
+            <i class="fas fa-tachometer-alt fa-lg p-2"></i>
+            Dashboard
+        </a>
+
+        <a href="#siteconfig" id="a-siteconfig" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-cog fa-lg p-2"></i>
+            Site Configuration
+        </a>
+
+        <a href="#users" id="a-users" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-users fa-lg p-2"></i>
+            Users
+        </a>
+
+        <a href="#services" id="a-services" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-sitemap fa-lg p-2"></i>
+            Services
+        </a>
+
+        <a href="#profile" id="a-profile" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-user-cog fa-lg p-2"></i>
+            Profile
+        </a>
+
+        <a href="#logout" id="a-logout" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-sign-out-alt fa-lg p-2"></i>
+            Logout
+        </a>
+
+        <a href="#servicestatus" id="a-servicestatus" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-question-circle fa-lg p-2"></i>
+            Service Status
+        </a>
+
+        <a href="#" id="a-exit" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-window-close fa-lg p-2"></i>
+            Exit Admin
+        </a>
+
+        <!-- End Sidebar Items -->
+    </div>
+    <!-- /#sidebar-wrapper -->
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light primary-color navbar-dark" style="height: 70px">
+        <button class="btn btn-danger" id="menu-toggle">Toggle Sidebar</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Load the Brand for the NavBar -->
+          {% include "main/navbars/brand.html" %}
+
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "main:home"%}#intro">Home</a>
+                </li>
+            </ul>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main screen -->
+      <div class="container-fluid">
+
+        <!--Tab Contents -->
+        <div class="tab-content" id="admin-pane-content">
+            This is current
+{#          <div id="dashboard" class="tab-pane fade show active" role="tabpanel">#}
+{#              {% include "main/admin_panel/dashboard.html" %}#}
+{#          </div>#}
+
+{#          <div id="siteconfig" class="tab-pane fade" role="tabpanel"><h2>site config</h2>...</div>#}
+{#            <div id="users" class="tab-pane fade" role="tabpanel"><h2>users</h2>...</div>#}
+{#            <div id="services" class="tab-pane fade" role="tabpanel"><h2>services</h2>...</div>#}
+{#            <div id="profile" class="tab-pane fade" role="tabpanel"><h2>profile</h2>...</div>#}
+{#            <div id="logout" class="tab-pane fade" role="tabpanel"><h2>logout</h2>...</div>#}
+{#            <div id="servicestatus" class="tab-pane fade" role="tabpanel"><h2>service status</h2>...</div>#}
+        </div>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- jQuery -->
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/popper.min.js" %}" ></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}" ></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static  "js/mdb.min.js"%}" ></script>
+
+    <!-- For access to cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="{% static  "js/custom.js"%}" ></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    {#Toggles the side bar#}
+    $("#menu-toggle").click(function(e) {
+
+        e.preventDefault();
+
+        $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+  <!-- Clickable functions for the content -->
+  <script>
+
+      // Get and store the CSRFToken
+      var csrftoken = Cookies.get("csrftoken");
+
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      // Add the X-CSRFToken Header for all unsafe methods
+      $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+          }
+      });
+
+
+      // Get access to the side bar list
+      var sidebarlist = document.getElementById("sidebarlist");
+
+      // Get all the buttons (Anchor tags)
+      var listbuttons = sidebarlist.getElementsByTagName("a")
+
+      //Loop through all the side bar anchor tags
+      for (var i = 0;i < listbuttons.length; i++){
+
+          listbuttons[i].addEventListener("click",function(){
+
+              // Perform an ajax post to the ajax admin url passing
+              // the id of the clicked element as a parameter
+              $.post('{% url "main:ajax_admin" %}',
+                  {id: this.id},
+
+                  // function that captures the return
+                  function(data){
+                    if(data['status']=='ok')
+                    {
+                        $("#admin-pane-content").html(data['html_content'])
+                    }
+                    else {
+                        alert("not ok")
+                    }
+                })
+
+              {#$.ajaxSetup({#}
+              {#    beforesend:function(xhr,settings){#}
+              {#        if (!)#}
+              {#    }#}
+              {#})#}
+          });
+      }
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="SPWeb - EasySM Sign-up and Admin Site">
+        <meta name="keywords" content="EasySM, ITSM, IT Services, Incident Management, Problem Management, Change Management, Service Catalogue, ITIL">
+        <meta name="author" content="Streamline Partners">
+        <link rel="icon" href="{% static "img/logo/favicon.png" %}" type="image/x-icon">
+        <link rel="shortcut icon" href="{% static "img/logo/favicon.png" %}" type="image/x-icon">
+
+        <!-- Application Title - which can be overridden -->
+        <title>
+            {% block title %}
+    {#            {% AppName %}#}
+            {% endblock %}
+        </title>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+        <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="{% static "css/streamlinepartners.css" %}">
+
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="{% static "css/mdb-free.css"%}">
+
+        <!-- Custom Style Sheet -->
+        {% if landing_page%}
+            <link rel="stylesheet" href="{% static "css/landing_page.css"%}">
+        {% elif admin %}
+            <link rel="stylesheet" href="{% static "css/side_bar.css"%}">
+        {% endif %}
+
+    </head>
+
+    {% if landing_page or admin %}
+        <body>
+    {% else %}
+        <!-- Add padding for the navbar on all pages except landing page -->
+        <body style="padding-top: 50px">
+    {% endif %}
+
+    <!-- Navigation -->
+    <header>
+        {% if admin_page %}
+        <br>
+    <br>
+    <br>
+    {% endif %}
+        {% block header %}
+
+            {% if not admin %}
+                <!-- Use the landing page NavBar - which has a transparent Background -->
+                {% include "main/navbars/landing_page_navbar.html" %}
+
+                <!-- Load the landing main page with the image -->
+                {% include "main/landing/main_page.html" %}
+            {% endif %}
+
+        {% endblock %}
+
+    </header>
+    <!-- End Navigation -->
+
+    <!-- Main Body Section -->
+    <main class="mt-5">
+
+        {% block main %}
+
+        {% endblock %}
+
+    </main>
+    <!-- End Main Body Section -->
+
+    <!-- Footer Section -->
+    <footer class="page-footer unique-color-dark">
+
+        {% block footer %}
+
+        {% endblock %}
+
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/popper.min.js" %}" ></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}" ></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static  "js/mdb.min.js"%}" ></script>
+
+    <!-- SPWeb Custom JavaScript -->
+    <script type="text/javascript" src="{% static  "js/custom.js"%}" ></script>
+
+    <!-- Menu Toggle Script -->
+      <script>
+        $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      </script>
+
+    {% block scripts %}
+        <!-- Additional JavaScript goes here -->
+    {% endblock %}
+
+</body>
+</html>
+
+
+
