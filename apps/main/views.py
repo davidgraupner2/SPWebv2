@@ -31,7 +31,7 @@ def pricing(request):
 def test(request):
     return render(request, "main/base_admin.html")
 
-def site_configuration(request):
+def easy_admin(request):
 
     if request.method == "POST":
 
@@ -56,12 +56,12 @@ def site_configuration(request):
 
         # Form is invalid
         form = forms.site_config_form()
-        return render(request,"main/site_admin/site_admin.html", {"form": form, "admin": True})
+        return render(request,"main/admin/easy_admin.html", {"form": form, "admin": True})
 
     else:
 
         # Get request - just show the form
         form = forms.site_config_form()
-        return render(request, "main/site_admin/site_admin.html", {"form": form,"admin": True})
+        return render(request, "main/admin/easy_admin.html", {"form": form, "admin": True})
 
 

@@ -9,7 +9,7 @@
 
     <!-- Application Title - which can be overridden -->
     <title>
-        {% block title %}
+        {% block browser-title %}
             Admin Panel
         {% endblock %}
     </title>
@@ -40,7 +40,7 @@
 
         <!-- Top Left Heading -->
         <div class="sidebar-heading bg-dark text-white align-self-center nowrap" style="height: 70px" align="middle">
-            {% block admintitle %}
+            {% block admin-title %}
                 {# Can be overridden#}
                 Admin Panel
             {% endblock %}
@@ -49,7 +49,7 @@
         <!-- Sidebar Menu List -->
         <div id="sidebarlist" class="list-group list-group-flush">
 
-            {% block sidebarmenu %}
+            {% block sidebar-menu %}
                 {# Add SideBar menu items here - similiar to exit below #}
 
             {% endblock %}
@@ -209,6 +209,15 @@
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip()
             })
+
+            // Get and store the CSRFToken for Ajax Queries
+            var csrftoken = Cookies.get("csrftoken");
+
+            // Returns the methods that are safe and don't require csrftokens
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
 
             // Hides the side bar
             $("#menu-toggle-hide").click(function(e) {

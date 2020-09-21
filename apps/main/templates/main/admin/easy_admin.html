@@ -1,0 +1,61 @@
+{% extends "main/base_admin.html" %}
+{% load static %}
+
+{# Set the browser title #}
+{% block browser-title %}
+    EasyAdmin
+{% endblock %}
+
+{# Set the admin title #}
+{% block admin-title %}
+    EasyAdmin
+{% endblock %}
+
+<!-- Add the menu items to the side bar -->
+<!-- No need to exit, thats catered for in the base template -->
+{% block sidebar-menu %}
+
+    <a href="#dashboard" id="a-dashboard" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary active">
+        <i class="fas fa-tachometer-alt fa-lg p-2"></i>
+        Dashboard
+    </a>
+
+    <a href="#siteconfig" id="a-siteconfig" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-cog fa-lg p-2"></i>
+        Site Configuration
+    </a>
+
+    <a href="#users" id="a-users" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-users fa-lg p-2"></i>
+        Users
+    </a>
+
+    <a href="#services" id="a-services" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-sitemap fa-lg p-2"></i>
+        Services
+    </a>
+
+    <a href="#profile" id="a-profile" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-user-cog fa-lg p-2"></i>
+        Profile
+    </a>
+
+    <a href="#logout" id="a-logout" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-sign-out-alt fa-lg p-2"></i>
+        Logout
+    </a>
+
+    <a href="#servicestatus" id="a-servicestatus" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+        <i class="fas fa-question-circle fa-lg p-2"></i>
+        Service Status
+    </a>
+
+{% endblock %}
+
+{# Add the javascript we need#}
+{% block domready %}
+
+
+
+{% endblock %}
+
