@@ -28,6 +28,8 @@ def landing(request):
 def pricing(request):
     return render(request,"main/landing/pricing.html")
 
+def test(request):
+    return render(request, "main/base_admin.html")
 
 def site_configuration(request):
 

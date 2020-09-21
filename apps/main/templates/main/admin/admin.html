@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Panel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/feather-icon.css" %}">
+
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "css/streamlinepartners.css" %}">
+
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static "css/mdb-free.css"%}">
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{% static "css/site_admin.css"%}">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="primary-color" id="sidebar-wrapper">
+      <div class="sidebar-heading bg-dark text-white align-self-center nowrap" style="height: 70px" align="middle">Admin Panel</div>
+        <div id="sidebarlist" class="list-group list-group-flush">
+
+        <!-- Side Bar Items -->
+        <a href="#dashboard" id="a-dashboard" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary active">
+            <i class="fas fa-tachometer-alt fa-lg p-2"></i>
+            Dashboard
+        </a>
+
+        <a href="#siteconfig" id="a-siteconfig" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-cog fa-lg p-2"></i>
+            Site Configuration
+        </a>
+
+        <a href="#users" id="a-users" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-users fa-lg p-2"></i>
+            Users
+        </a>
+
+        <a href="#services" id="a-services" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-sitemap fa-lg p-2"></i>
+            Services
+        </a>
+
+        <a href="#profile" id="a-profile" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-user-cog fa-lg p-2"></i>
+            Profile
+        </a>
+
+        <a href="#logout" id="a-logout" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-sign-out-alt fa-lg p-2"></i>
+            Logout
+        </a>
+
+        <a href="#servicestatus" id="a-servicestatus" data-toggle="tab" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-question-circle fa-lg p-2"></i>
+            Service Status
+        </a>
+
+        <a href="#" id="a-exit" data-toggle="modal" data-target="#exitadminmodal" class="list-group-item list-group-item-action list-group-item-primary">
+            <i class="fas fa-window-close fa-lg p-2"></i>
+            Exit Admin
+        </a>
+
+        <!-- End Sidebar Items -->
+    </div>
+    <!-- /#sidebar-wrapper -->
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light primary-color navbar-dark" style="height: 70px">
+
+          <!-- Show / Hide Sidebar buttons -->
+
+          <!-- Hide Sidebar Button - shown by default -->
+          <button class="btn btn-danger btn-sm justify-content-center" id="menu-toggle-hide" class="text-white" style="display: block;">
+              <i id="sidebarhide" class="fas fa-arrow-left fa-lg mr-2 align-middle"></i>
+              Sidebar
+          </button>
+
+          <!-- Show SideBar button - hidden by default -->
+          <button class="btn btn-danger btn-sm justify-content-center" id="menu-toggle-show" class="text-white" style="display: none">
+              <i class="fas fa-arrow-right fa-lg mr-2 align-middle"></i>
+              Sidebar
+          </button>
+
+        <!-- Load the Brand for the NavBar -->
+        {% include "main/navbars/brand_no_home.html" %}
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <!-- Additional links go here -->
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main screen -->
+      <div class="container-fluid">
+
+        <!--Tab Contents -->
+        <div class="tab-content" id="admin-pane-content">
+            This is current
+        </div>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <!-- Modal -->
+    `<div class="modal fade" id="exitadminmodal" tabindex="-1" role="dialog" aria-labelledby="exitadminmodal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exitadminmodaltitle">Exit Admin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to exit the admin interface?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <a type="button" href="{% url "main:home" %}" class="btn btn-primary">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Feather Icon Support -->
+  <script src="{% static "js/feather-icon/feather.min.js" %}"></script>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/popper.min.js" %}" ></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}" ></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static  "js/mdb.min.js"%}" ></script>
+
+    <!-- For access to cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="{% static  "js/custom.js"%}" ></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    {#Hides the side bar#}
+    $("#menu-toggle-hide").click(function(e) {
+
+        e.preventDefault();
+
+        $("#wrapper").toggleClass("toggled");
+
+        // Make the hide sidebar button invisible
+        var hidebutton=document.getElementById("menu-toggle-hide")
+        hidebutton.style.display = "none"
+
+        // Make the show sidebar button visible
+        var showbutton=document.getElementById("menu-toggle-show")
+        showbutton.style.display = "block"
+    });
+
+    $("#menu-toggle-show").click(function(e) {
+
+        e.preventDefault();
+
+        $("#wrapper").toggleClass("toggled");
+
+        // Make the show sidebar button visible
+        var hidebutton=document.getElementById("menu-toggle-hide")
+        hidebutton.style.display = "block"
+
+        // Make the hide sidebar button invisible
+        var showbutton=document.getElementById("menu-toggle-show")
+        showbutton.style.display = "none"
+    });
+  </script>
+
+  <!-- Clickable functions for the content -->
+  <script>
+
+      // Get and store the CSRFToken
+      var csrftoken = Cookies.get("csrftoken");
+
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      // Add the X-CSRFToken Header for all unsafe methods
+      $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+          }
+      });
+
+
+      // Get access to the side bar list
+      var sidebarlist = document.getElementById("sidebarlist");
+
+      // Get all the buttons (Anchor tags)
+      var listbuttons = sidebarlist.getElementsByTagName("a")
+
+      //Loop through all the side bar anchor tags
+      for (var i = 0;i < listbuttons.length; i++){
+
+          listbuttons[i].addEventListener("click",function(){
+
+              // Perform an ajax post to the ajax admin url passing
+              // the id of the clicked element as a parameter
+              $.post('{% url "main:ajax_admin" %}',
+                  {id: this.id},
+
+                  // function that captures the return
+                  function(data){
+                    if(data['status']=='ok')
+                    {
+                        $("#admin-pane-content").html(data['html_content'])
+                    }
+                    else {
+                        alert("not ok")
+                    }
+                })
+
+              {#$.ajaxSetup({#}
+              {#    beforesend:function(xhr,settings){#}
+              {#        if (!)#}
+              {#    }#}
+              {#})#}
+          });
+      }
+
+
+  </script>
+
+    <script>
+        {# To enable Bootstrap Tooltips #}
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    <script>
+      feather.replace()
+    </script>
+
+
+</body>
+
+</html>
