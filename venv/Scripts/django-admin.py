@@ -1,4 +1,4 @@
-#!D:\OneDrive\Develop\Python\SPWebv2\venv\Scripts\python.exe
+#!D:\OneDrive\Develop\Python\EasyAdmin\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
